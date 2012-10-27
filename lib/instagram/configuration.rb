@@ -13,7 +13,8 @@ module Instagram
       :endpoint,
       :format,
       :user_agent,
-      :proxy
+      :proxy,
+      :scope
     ].freeze
 
     # An array of valid request/response formats
@@ -51,6 +52,9 @@ module Instagram
 
     # By default, don't use a proxy server
     DEFAULT_PROXY = nil
+    
+    # By default, all scope for comments and likes
+    DEFAULT_SCOPE = "likes+comments+relationships"
 
     # The user agent that will be sent to the API endpoint if none is set
     DEFAULT_USER_AGENT = "Instagram Ruby Gem #{Instagram::VERSION}".freeze
@@ -85,6 +89,7 @@ module Instagram
       self.format         = DEFAULT_FORMAT
       self.user_agent     = DEFAULT_USER_AGENT
       self.proxy          = DEFAULT_PROXY
+      self.scope          = DEFAULT_SCOPE
     end
   end
 end
